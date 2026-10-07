@@ -1,0 +1,24 @@
+﻿.header {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.title {
+  margin: 0;
+}
+
+.intro {
+  max-width: 40ch;
+  margin: 0;
+  font-size: var(--text-body-lg);
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 768px) {
+  .header {
+    gap: var(--space-6);
+    margin-bottom: var(--space-16);
+  }
+}

@@ -1,0 +1,109 @@
+﻿.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-canvas);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-ink);
+}
+
+/* Desktop-only elements are hidden below 1024px */
+.desktopLinks {
+  display: none;
+}
+
+.desktopLinks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav .menuButton {
+  padding-inline: var(--space-2);
+}
+
+.menuText {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Mobile menu panel: overlays content, so opening it causes no layout shift */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-block: var(--space-4) var(--space-8);
+  background-color: var(--color-canvas);
+  border-bottom: 1px solid var(--color-line);
+  animation: menu-in var(--motion-base) var(--ease-standard);
+}
+
+.mobileMenu[hidden] {
+  display: none;
+}
+
+.mobileLinks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobileMenu .mobileLink {
+  width: 100%;
+  min-height: 52px;
+  font-size: var(--text-body-lg);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.mobileMenu .mobileLink::after {
+  bottom: 0;
+}
+
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    padding-block: var(--space-5);
+  }
+
+  .desktopLinks {
+    display: flex;
+    gap: var(--space-8);
+  }
+
+
+  .nav .menuButton,
+  .mobileMenu {
+    display: none;
+  }
+}
